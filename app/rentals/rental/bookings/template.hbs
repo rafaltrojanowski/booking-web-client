@@ -1,0 +1,15 @@
+{{link-to "New booking" "rentals.rental.bookings.new" model.id}}
+
+{{ outlet }}
+
+<hr />
+
+{{#each model.bookings as |booking|}}
+  {{booking.clientEmail}}
+  {{booking.price}}
+  {{moment booking.startAt}}
+  {{moment booking.endAt}}
+  {{link-to "Edit" "rentals.rental.bookings.booking.edit" model.id booking.id}}
+  <a href="" {{action 'destroy' booking}}>Destroy</a>
+  <br />
+{{/each}}

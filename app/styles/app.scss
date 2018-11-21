@@ -1,0 +1,16 @@
+@import 'bower_components/fontawesome/scss/variables';
+@import 'bower_components/fontawesome/scss/path';
+@import 'bower_components/fontawesome/scss/mixins';
+@import 'bower_components/fontawesome/scss/icons';
+
+@import "ember-bootstrap/bootstrap";
+
+.g-map{
+  // height: 100%;
+}
+.g-map-canvas {
+  // width: 100%;
+  // height: 100%;
+  width: 800px;
+  height: 600px;
+}

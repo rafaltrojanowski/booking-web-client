@@ -1,0 +1,15 @@
+{{#if false}}
+  {{#each model as |booking|}}
+    {{ booking.id }}
+    {{ booking.title }}
+    {{ booking.startAt}}
+    {{ booking.endAt}}
+    {{ booking.color}}
+    <hr />
+  {{/each}}
+{{/if}}
+
+{{full-calendar
+  events=events
+  viewName='agendaWeek'
+}}

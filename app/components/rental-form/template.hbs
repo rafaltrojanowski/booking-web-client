@@ -1,0 +1,49 @@
+<ul>
+  {{#each changeset.errors as |errorSet|}}
+    {{#each errorSet.validation as |error|}}
+      <li>{{error}}</li>
+    {{/each}}
+  {{/each}}
+</ul>
+
+<form>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input value=changeset.name update=(action (mut changeset.name)) class="form-control"}}
+    <!-- Name: {{one-way-input value=rental.name update=(action (mut rental.name))}}-->
+  </div>
+
+  <div class="form-group">
+    <label for="dailyRate">Daily rate</label>
+    {{input value=changeset.dailyRate update=(action (mut changeset.dailyRate)) class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    {{textarea value=changeset.description update=(action (mut changeset.dailyRate)) class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <select onchange={{action "selectCategory" value="target.value"}}>
+      {{#each categories as |categoryChoice|}}
+        <option value={{categoryChoice}} selected={{eq changeset.category categoryChoice}}>{{categoryChoice}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select onchange={{action "selectLocation" value="target.value"}}>
+      {{#each locations as |locationChoice|}}
+        <option value={{locationChoice}} selected={{eq changeset.location locationChoice}}>{{locationChoice}}</option>
+      {{/each}}
+    </select>
+  </div>
+</form>
+
+<button class="btn btn-primary" {{action 'save'}}>
+  Save
+</button>
+<button class="btn btn-primary" {{action 'cancel'}}>
+  Cancel
+</button>

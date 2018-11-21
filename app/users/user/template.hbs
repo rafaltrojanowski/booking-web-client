@@ -1,0 +1,17 @@
+<div class="col-md-4">
+  <div class="list-group">
+    <h2>{{model.name}}</h2>
+    <p>{{model.town}}</p>
+
+    <br />
+
+    {{#each model.rentals as |rental|}}
+      {{render 'rentals/rental' rental}}
+    {{/each}}
+
+  </div>
+</div>
+
+<div class="col-md-8">
+  {{outlet}}
+</div>

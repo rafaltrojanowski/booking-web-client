@@ -1,0 +1,51 @@
+RENTALS:
+<hr />
+
+{{#each model.rentals as |rental|}}
+  <div class="col-md-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{rental.name}}</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table condensed">
+          <tr>
+            <!-- <td width="10%"><span class="sm-box bggreen2"></span></td>-->
+            <td width="90%"><b>Daily rate</b></td>
+            <td width="10%">{{rental.dailyRate}}$</td>
+          </tr>
+        </table>
+      </div>
+      <div style="padding: 10px 10px 10px 10px;">
+        {{link-to "Show" 'rentals.rental' rental class="btn btn-primary"}}
+        {{link-to "Book" 'rentals.rental.bookings.new' rental class="btn btn-primary"}}
+      </div>
+    </div>
+  </div>
+{{/each}}
+
+AGENTS:
+<hr />
+
+{{#each model.users as |user|}}
+  <div class="col-md-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{user.name}}</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table condensed">
+          <tr>
+            <!-- <td width="10%"><span class="sm-box bggreen2"></span></td>-->
+            <!-- <td width="90%"><b>Daily rate</b></td>-->
+            <td width="10%">{{user.town}}</td>
+          </tr>
+        </table>
+      </div>
+      <div style="padding: 10px 10px 10px 10px;">
+        {{link-to "Show" 'users.user' user class="btn btn-primary"}}
+      </div>
+    </div>
+  </div>
+{{/each}}
+

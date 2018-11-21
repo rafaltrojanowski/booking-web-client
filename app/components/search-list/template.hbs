@@ -1,0 +1,16 @@
+<div class="col-md-4">
+  <ul class='search-item'>
+    {{#each items as |rental|}}
+      {{rental-item rental=rental}}
+      <hr />
+    {{/each}}
+  </ul>
+</div>
+
+<div class="col-md-8">
+  {{#g-map markersFitMode='live' as |context|}}
+    {{#each items as |rental|}}
+      {{g-map-marker context lat=rental.lat lng=rental.lng title=rental.id}}
+    {{/each}}
+  {{/g-map}}
+</div>

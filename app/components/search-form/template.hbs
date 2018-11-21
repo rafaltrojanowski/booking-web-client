@@ -1,0 +1,18 @@
+<form class="form-horizontal" {{action "updateParams" on="submit"}}>
+
+  {{input class="search-query" value=q}}
+
+  <select onchange={{action "selectLocation" value="target.value"}}>
+    {{#each locations as |locationChoice|}}
+      <option value={{locationChoice}} selected={{eq location locationChoice}}>{{locationChoice}}</option>
+    {{/each}}
+  </select>
+
+  <select onchange={{action "selectCategory" value="target.value"}}>
+    {{#each categories as |categoryChoice|}}
+      <option value={{categoryChoice}} selected={{eq category categoryChoice}}>{{categoryChoice}}</option>
+    {{/each}}
+  </select>
+
+  <input class="submit-button" type="submit" value="Submit">
+</form>

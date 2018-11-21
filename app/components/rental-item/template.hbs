@@ -1,0 +1,21 @@
+<div class="list-group">
+  <h2>{{rental.name}}</h2>
+  <p>{{rental.dailyRate}}$</p>
+  <p>{{rental.location}}</p>
+  <p>{{rental.category}}</p>
+  <p>{{rental.description}}</p>
+
+  {{link-to rental.user.name "users.user" rental.user }}
+
+  {{link-to "Edit" "rentals.rental.edit" rental}}
+  {{link-to "Bookings" "rentals.rental.bookings" rental}}
+
+  {{link-to "Show" 'rentals.rental' rental class="btn btn-primary"}}
+  {{link-to "Book" 'rentals.rental.bookings.new' rental class="btn btn-primary"}}
+
+  <br />
+
+  <a href="" {{action 'destroy'}}>
+    Destroy
+  </a>
+</div>

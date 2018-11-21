@@ -1,0 +1,25 @@
+<div class="col-md-4">
+  <div class="list-group">
+    <h2>{{model.name}}</h2>
+    <p>{{model.dailyRate}}$</p>
+    <p>{{model.location}}</p>
+    <p>{{model.category}}</p>
+    <p>{{model.description}}</p>
+
+    {{link-to model.user.name "users.user" model.user }}
+
+    {{link-to "Edit" "rentals.rental.edit" model}}
+    {{link-to "Bookings" "rentals.rental.bookings" model}}
+
+    <br />
+
+    <a href="" {{action 'destroy'}}>
+      Destroy
+    </a>
+
+  </div>
+</div>
+
+<div class="col-md-8">
+  {{ outlet }}
+</div>

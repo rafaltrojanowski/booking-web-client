@@ -1,0 +1,9 @@
+{{search-form updateParams=(action "updateParams") location=location category=category name=name}}
+
+{{#if model}}
+  Found {{itemsCount}} item(s) in {{location}} for {{category}}:
+{{else}}
+  No items
+{{/if}}
+
+{{search-list items=model firstRental=firstRental}}

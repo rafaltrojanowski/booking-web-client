@@ -1,0 +1,33 @@
+<div class="col-md-4">
+  <div class="list-group">
+    {{#each model as |rental|}}
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{rental.name}}</h3>
+          <!-- <h5>Stores Logs, Backups, & Files</h5>-->
+        </div>
+        <div class="panel-body">
+          <table class="table condensed">
+            <tr>
+              <!-- <td width="10%"><span class="sm-box bggreen2"></span></td>-->
+              <td width="90%"><b>Daily rate</b></td>
+              <td width="10%">{{rental.dailyRate}}$</td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding: 10px 10px 10px 10px;">
+          {{link-to "Show" 'rentals.rental' rental class="btn btn-primary"}}
+          {{link-to "Book" 'rentals.rental.bookings.new' rental class="btn btn-primary"}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<div class="col-md-8">
+  {{#g-map lat=firstRental.lat lng=firstRental.lng zoom=8 as |context|}}
+    {{#each model as |rental|}}
+      {{g-map-marker context lat=rental.lat lng=rental.lng}}
+    {{/each}}
+  {{/g-map}}
+</div>
